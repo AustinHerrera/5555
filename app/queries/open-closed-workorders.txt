@@ -1,0 +1,18 @@
+SELECT TOP 1000 
+       m.[OrgID]
+      ,m.[MachineID]
+      ,o.MachineName
+      ,t.MachineType
+      ,m.[WOStatusID]
+      ,m.[SuspenseDate]
+      ,m.[LastUpdatedBy]
+      ,m.[DateCreated]
+      ,m.[DateUpdated]
+  FROM [OPS].[dbo].[tblMOMSWorkOrders] as m
+  join OPS.dbo.tblMachines as o on o.MachineID = m.MachineID
+  Join CTRL.Prl.lkpMachineTypes as t on  o.MachineTypeID = t.MachineTypeID
+   where m.DateCreated between DateADD(MINUTE, -90, GETDATE()) and GETDATE()
+  and m.SuspenseDate between m.DateCreated and DateADD(MINUTE, 5, m.DateCreated)
+ and m.WOStatusID = 6
+ and t.LanguageID = '1033'
+order by DateCreated desc

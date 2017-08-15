@@ -1,0 +1,11 @@
+
+
+{% extends 'base.html' %}
+{% block body %}
+<title>Missing Images report</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<div class = page>
+    <h2>Missing Image percentage by plaza</h2>
+    {{ missingImages|safe }}
+</div>
+{% endblock %}

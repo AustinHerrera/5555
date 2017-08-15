@@ -1,0 +1,15 @@
+Foremost version 1.5.7 by Jesse Kornblum, Kris Kendall, and Nick Mikus
+Audit File
+
+Foremost started at Mon Aug 14 14:29:03 2017
+Invocation: foremost -t html -i /dev/sda1 
+Output directory: /home/austin/Script-app/app/output
+Configuration file: /etc/foremost.conf
+------------------------------------------------------------------
+File: stdin
+Start: Mon Aug 14 14:29:03 2017
+Length: Unknown
+ 
+Num	 Name (bs=512)	       Size	 File Offset	 Comment 
+
+Interrupt received at Tue Aug 15 10:20:26 2017

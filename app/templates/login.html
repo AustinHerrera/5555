@@ -1,0 +1,13 @@
+{% block title %}Flasky - login {% endblock %}
+<div class="page-header">
+    <h1>Login</h1>
+</div>
+<div class="col-md-4">
+<form method="POST" action="/login">
+    {{ form.hidden_tag() }}
+    {{form.email.label }} {{ form.email(size=20)}}
+    {{ form.password.label }} {{ form.password(size=20)}} 
+    <input type="submit" value="Login">
+</form>
+
+</div>

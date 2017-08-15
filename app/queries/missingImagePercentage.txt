@@ -1,0 +1,7 @@
+SELECT org.OrgName as OrgName, TTU.LaneNumber as LaneNumber,  SUM(CASE WHEN VDF.LaneTransactionID IS NULL THEN 1 ELSE 0 END) AS 'MissingImages'
+FROM ICD.dbo.tblCoopTagTollUsage TTU 
+LEFT JOIN ICD.HHB.tblCoopBatchVDFData VDF ON TTU.TransID = VDF.LaneTransactionID 
+, OPS.[dbo].[tblOrg] as org
+WHERE TransType = 'VIOL' AND AxlesCounted > 0 AND TransUTCDate between DATEADD(hh,-2, GETUTCDATE()) AND DATEADD(hh,-1, GETUTCDATE())
+Group by LaneNumber, OrgName
+

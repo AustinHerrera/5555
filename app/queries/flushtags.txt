@@ -1,0 +1,4 @@
+select TTU.LaneNumber, TTU.TransDate, TTU.CoopTagNumber, IIF(TTU.LCAdditionalData IS NULL, 'Buffered','Flushed') as 'B/F', IIF(TTU.LCAdditionalData like '_______1%','TRUE','FALSE') as 'secondTag'from ICD.dbo.tblCoopTagTollUsage (nolock) TTU 
+where (TTU.LCAdditionalData like '_____1%' or TTU.LCAdditionalData like '______1%' or TTU.LCAdditionalData is null)
+and TTU.TransDate between DATEADD(HH, DATEDIFF(HH, 0, GETDATE()) - 1, 0) and DATEADD(s, -1,DATEADD(HH, DATEDIFF(HH,0,GETDATE()),0)) order by TTU.TransDate
+

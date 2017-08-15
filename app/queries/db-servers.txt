@@ -1,0 +1,1 @@
+select rtrim(M.MachineIP) as MachineIP, M.OrgID as OrgID, O.OrgName as Orgname from CPC.dbo.tblMachines M join CPC.dbo.tblOrg O on O.OrgID = M.OrgID where MachineTypeID in (4) and M.IsActive = 1

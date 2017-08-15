@@ -1,0 +1,16 @@
+
+
+{% extends 'base.html' %}
+{% block body %}
+<title>MachineList</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<div class = page>
+    <h2>Machines</h2>
+     {% for x in machines %}
+			{{ x|safe}}
+			poop
+		{% endfor %}
+		
+</div>
+</div>
+{% endblock %}

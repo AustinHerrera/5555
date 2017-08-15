@@ -1,0 +1,4 @@
+SELECT [TransType]
+      ,[LaneNumber]
+  FROM [OPS].[dbo].[tblTransaction]
+  where TransDate between DATEADD(mi,-60,GETDATE()) and GETDATE()
